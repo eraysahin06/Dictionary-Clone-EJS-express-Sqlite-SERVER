@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Dictionary Clone</title>
+</head>
+<body>
+    <header class="fixed-top bg-light">
+        <div class="container pt-4">
+            <h1 class="fs-4 d-inline-block">Dictionary Clone</h1>
+            <div class="d-inline-block" style="width: 256px; margin-left: 400px;">
+                <form action="#">
+                    <div class="row g-0">
+                        <div class="col-10">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <button class="form-control btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="float-end">
+                <a class="btn btn-primary" href="#">Login <i class="fa-solid fa-door-open"></i></a>
+                <a class="btn btn-outline-primary" href="#">Sign-up <i class="fa-solid fa-user-pen"></i></a>
+            </div>
+            <nav class="row mt-4 border-top border-bottom py-2 text-center">
+                <div class="col-2"><a href="" class="menu-item btn">Lorem.</a></div>
+                <div class="col-2"><a href="" class="menu-item btn">Veritatis?</a></div>
+                <div class="col-2"><a href="" class="menu-item btn">Adipisci?</a></div>
+                <div class="col-2"><a href="" class="menu-item btn">Est!</a></div>
+                <div class="col-2"><a href="" class="menu-item btn">Neque.</a></div>
+                <div class="col-2"><a href="" class="menu-item btn">Voluptatem!</a></div>
+            </nav>
+        </div>
+    </header>
+    <main class="container" style="margin-top: 200px">
+        <div class="row">
+            <div class="col-3">
+                <h2 class="fs-5">Recent</h2>
+                <ul class="text-truncate overflow-y-visible" style="height: 512px">
+                    <% entries.forEach((item => { %>
+                        <li><a href="/entry/<%= item.id %>"  class="btn entry"><%= item.title %></a></li>
+                    <% })) %>
+                </ul>
+            </div>
+            <div class="col-9">
+                <div class="card mb-4">
+                    <div class="card-header shadow">
+                        <div class="card-title fs-5"><%= entry.title %></div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text"><%= entry.content %></div>
+                    </div>
+                    <div class="card-footer">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80" class="img-fluid rounded-pill" style="width: 64px">
+                        <span><%= entry.username %></span>
+                    </div>
+                </div>
+                <form class="my-4">
+                    <div class="row g-1">
+                        <div class="col-12">
+                            <div class="fs-5">Add Comment</div>
+                        </div>
+                        <div class="col-2">
+                            <img class="img-fluid rounded" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80">
+                        </div>
+                        <div class="col-10">
+                            <textarea style="height: 100%" class="form-control border-3 border-primary" name="comment"></textarea>
+                        </div>
+                        <div class="col-2">
+                            <div class="d-grid g-2">
+                                <button class="btn btn-outline-secondary">Clean</button>
+                            </div>
+                        </div>
+                        <div class="col-10">
+                            <div class="d-grid g-2">
+                                <button type="submit" class="btn btn-primary">Add Comment</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <% comments.forEach((comment => { %>
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <div class="card-text"><%= comment.content %></div>
+                        </div>
+                        <div class="card-footer">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cGVyc29ufGVufDB8fDB8fA%3D%3D&w=1000&q=80" class="img-fluid rounded-pill" style="width: 64px">
+                            <span><%= comment.username %></span>
+                        </div>
+                    </div>
+                <% })) %>
+                <div class="mt-4 text-center text-secondary">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/88067d5aed.js" crossorigin="anonymous"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+</html>

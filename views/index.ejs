@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Dictionary Clone</title>
+</head>
+<body>
+    <header class="fixed-top bg-light">
+        <div class="container pt-4">
+            <h1 class="fs-4 d-inline-block">Dictionary Clone</h1>
+            <div class="d-inline-block" style="width: 256px; margin-left: 400px;">
+                <form action="#">
+                    <div class="row g-0">
+                        <div class="col-10">
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="col-2">
+                            <button class="form-control btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="float-end">
+                <a class="btn btn-primary" href="#">Login <i class="fa-solid fa-door-open"></i></a>
+                <a class="btn btn-outline-primary" href="#">Sign-up<i class="fa-solid fa-user-pen"></i></a>
+            </div>
+            <nav class="row mt-4 border-top border-bottom py-2 text-center">
+                <div class="col-2"><a href="" class="menu-item btn">Lorem.</a></div>
+                <div class="col-2"><a href="" class="menu-item btn">Veritatis?</a></div>
+                <div class="col-2"><a href="" class="menu-item btn">Adipisci?</a></div>
+                <div class="col-2"><a href="" class="menu-item btn">Est!</a></div>
+                <div class="col-2"><a href="" class="menu-item btn">Neque.</a></div>
+                <div class="col-2"><a href="" class="menu-item btn">Voluptatem!</a></div>
+            </nav>
+        </div>
+    </header>
+    <main class="container" style="margin-top: 200px">
+        <div class="row">
+            <div class="col-3">
+                <h2 class="fs-5">Recent</h2>
+                <ul class="text-truncate overflow-y-visible" style="height: 512px">
+                    <% entries.forEach((item => { %>
+                        <li><a href="/entry/<%= item.id %>"  class="btn entry"><%= item.title %></a></li>
+                    <% })) %>
+                </ul>
+            </div>
+            <div class="col-9">
+                <% entries.forEach((item => { %>
+                    <div class="card mb-4">
+                        <div class="card-header shadow">
+                            <div class="card-title fs-5"><%= item.title %></div>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-text"><%= item.content %></div>
+                        </div>
+                        <div class="card-footer">
+                            <img src="data:image/bmp;base64,<%= item.image %>" class="img-fluid rounded-pill" style="width: 64px">
+                            <span><%= item.username %></span>
+                        </div>
+                    </div>
+                <% })) %>
+                <div class="mt-4 text-center text-secondary">
+                    <p>Lorem ipsum dolor sit amet.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://kit.fontawesome.com/88067d5aed.js" crossorigin="anonymous"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
